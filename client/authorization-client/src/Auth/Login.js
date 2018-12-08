@@ -40,7 +40,9 @@ class Login extends Component {
   }
   signIn = event => {
     event.preventDefault();
-    console.log(this.state)
+    axios.post('http://localhost:3300/api/login', this.state).then(res => {
+      console.log(res.data);
+    })
   };
 
   handleChange = event => {

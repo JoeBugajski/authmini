@@ -1,0 +1,34 @@
+.agentList {
+  width: 100%;
+  display: flex inline-block;
+  flex-direction: row;
+  align-self: flex-end;
+  margin-left: 3%;
+}
+
+h2 {
+  color: rgb(135, 212, 135);
+}
+
+ul {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  margin-left: 10%;
+  padding: 4%;
+  background-color: rgba(52, 156, 19, 0.3);
+  -webkit-box-shadow: 5px 5px 15px 5px rgba(52, 56, 19, 0.3); 
+  box-shadow: 45px 14px 154px 55px rgba(52, 156, 19, 0.5);
+}
+
+li {
+  color: rgb(135, 212, 135);
+  padding: 2%;
+  background-color: rgba(0, 0, 0, 0.4);
+  margin: 2%;
+}
+
+img {
+  width: 90%;
+  height: auto
+}

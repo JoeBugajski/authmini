@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import './Login.css';
+import { Route, NavLink } from 'react-router-dom';
+import './Register.css';
 
-class Login extends Component {
+class Register extends Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -14,7 +15,7 @@ class Login extends Component {
     return (
       <form 
         className = 'form'
-        onSubmit={this.signIn}>
+        onSubmit={this.register}>
         <div className='inputs'>
           <label>Code Name:</label>
             <input 
@@ -23,7 +24,7 @@ class Login extends Component {
               type="text"
               onChange={this.handleChange} />
         </div>
-        <div className='inputs'>
+        <div className ='inputs'>
           <label>Password:</label>
           <input 
             name= "password"
@@ -32,22 +33,19 @@ class Login extends Component {
             onChange={this.handleChange} />
         </div>
         <div>
-          <button type="submit">Sign In</button>
+          <button type="submit">Register</button>
         </div>
       </form>
     );
   }
-  signIn = event => {
+  register = event => {
     event.preventDefault();
     axios
-      .post('http://localhost:3300/api/login', this.state)
+      .post('http://localhost:3300/api/register', this.state)
       .then(res => {
-        localStorage.setItem('jwt', res.data.token);
-        // navigat to /users
-        this.props.history.push('/users');
-    })
-    .catch(err => {
-      console.error('Axios Error', err)
+      console.log(res.data);
+      localStorage.setItem('jwt', res.data.token);
+      this.props.history.push('/users');
     })
   };
 
@@ -61,4 +59,4 @@ class Login extends Component {
 }
 
 
-export default Login;
+export default Register;
